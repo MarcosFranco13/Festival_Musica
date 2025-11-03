@@ -1,0 +1,27 @@
+{
+  "name": "festival_musica",
+  "version": "1.0.0",
+  "description": "Practica aprendiendo SASS, GULP y NPM",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarcosFranco13/Festival_Musica.git"
+  },
+  "keywords": [
+    "SASS",
+    "Gulp",
+    "NPM"
+  ],
+  "author": "Marcos Del Angel Franco",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MarcosFranco13/Festival_Musica/issues"
+  },
+  "homepage": "https://github.com/MarcosFranco13/Festival_Musica#readme",
+  "devDependencies": {
+    "sass": "^1.93.3"
+  }
+}
