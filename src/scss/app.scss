@@ -2,11 +2,15 @@
 //Podemos añadir fuentes de google font con el código de css que nos dar goolge.
 //Sass nos permite crear diferentes archivos, ayuda a tener un mejor orden en el
 //Creando variables en sass siempre empiezan con este simbolo $
-$fuente_principal: "Montserrat", sans-serif;
+
+@use 'variables' as v;//importamos el archivo de _varibales con use se manda a llamar sin el _ y la extensión.
 
 body {
-  font-family: $fuente_principal;
+  font-family: v.$fuente_principal;
   font-optical-sizing: auto;
   font-style: normal;
+  color: v.$negro ;
 
 }
+
+//Sass permite crear diferentes archivos ya sea por funciones o por secciones en el codigo html y al final sass lo une.

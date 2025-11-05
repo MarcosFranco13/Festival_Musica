@@ -6,7 +6,7 @@ const sass = gulpSass(dartSass)
 
 export function css(done){
     src('src/scss/app.scss')//Ubicamos el archivo
-         .pipe(sass()) //aplica sass
+         .pipe(sass().on('error', sass.logError)) //aplica sass
          .pipe(dest('build/css')) //Destino donde almacenamos el archivo
 
     done()
