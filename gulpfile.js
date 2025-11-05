@@ -13,5 +13,7 @@ export function css(done){
 }
 
 export function dev(){
-    watch('src/scss/app.scss', css)//indicamos el archivo que este en observación y que funcion se ejecute cuando existan cambios
+    watch('src/scss/**/*.scss', css)//indicamos el archivo que este en observación y que funcion se ejecute cuando existan cambios
+    //Cambiamos el nombre de app.scss por uno mas generico que nos permita encontrar mas archivos que tengan .scss
+    //Entonces en src y scss **buscara todos las carpetas que esten dentro entonces * todos los archivos que tenga la extension .scss
 }

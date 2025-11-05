@@ -3,7 +3,7 @@
 //Sass nos permite crear diferentes archivos, ayuda a tener un mejor orden en el
 //Creando variables en sass siempre empiezan con este simbolo $
 
-@use 'variables' as v;//importamos el archivo de _varibales con use se manda a llamar sin el _ y la extensión.
+@use 'base/variables' as v;//importamos el archivo de _varibales con use se manda a llamar sin el _ y la extensión.
 
 body {
   font-family: v.$fuente_principal;
