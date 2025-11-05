@@ -4,7 +4,8 @@
   "description": "Practica aprendiendo SASS, GULP y NPM",
   "main": "index.js",
   "scripts": {
-    "sass": "sass --watch src/scss:build/css"
+    "sass": "sass --watch src/scss:build/css",
+    "hola": "gulp hola"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,7 @@
   },
   "homepage": "https://github.com/MarcosFranco13/Festival_Musica#readme",
   "devDependencies": {
+    "gulp": "^5.0.1",
     "sass": "^1.93.3"
   }
 }
