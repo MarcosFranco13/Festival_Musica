@@ -4,6 +4,8 @@
 //Creando variables en sass siempre empiezan con este simbolo $
 
 @use 'base/variables' as v;//importamos el archivo de _varibales con use se manda a llamar sin el _ y la extensión.
+@use 'base/normalize';
+
 
 body {
   font-family: v.$fuente_principal;
