@@ -17,4 +17,5 @@
 
 //Sass permite crear diferentes archivos ya sea por funciones o por secciones en el codigo html y al final sass lo une.
 
-@forward 'base/index';
+@forward 'base';
+@forward 'layout';
