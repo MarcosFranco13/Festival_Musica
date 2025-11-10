@@ -1,7 +1,13 @@
-@use "base/variables" as v;
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
 
 .header {
   background-color: v.$verde;
+
+  @include m.telefono{
+    color: white;
+    
+  };
 
   .contenido-header {
     padding: 2rem;
@@ -29,3 +35,4 @@
     }
   }
 }
+
