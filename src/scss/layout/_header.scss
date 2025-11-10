@@ -6,6 +6,20 @@
 
   @include m.telefono{
     color: white;
+
+  };
+
+  @include m.tablet{
+    color: white;
+    
+  };
+
+  @include m.desktop{
+    color: white;
+    
+  };
+  @include m.desktopXL{
+    color: white;
     
   };
 
