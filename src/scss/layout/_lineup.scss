@@ -1,3 +1,4 @@
+@use 'sass:color';
 @use 'base/variables' as v;
 @use 'base/mixins' as m;
 
@@ -27,5 +28,33 @@
         font-weight: 900;
         text-transform: uppercase;
         text-align: center;
+    }
+}
+
+.calendario{
+    @include m.resetear-lista;
+
+    li{
+        padding: 2.5rem;
+        font-weight: 700;
+        span{
+            font-weight: 400;
+
+        }
+    }
+}
+
+.bg-amarillo{
+    background-color: v.$amarillo;
+    li:nth-child(odd){
+        background-color: color.adjust(v.$amarillo, $lightness: 8%);
+
+    }
+}
+
+.bg-verde{
+    background-color: v.$verde;
+    li:nth-child(odd){
+        background-color: color.adjust(v.$verde,$lightness: 8%)
     }
 }
