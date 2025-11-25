@@ -5,19 +5,18 @@ document.addEventListener("DOMContentLoaded", function () {
   scrollNav();
 });
 
-function navegacionFija(){
+function navegacionFija() {
   const header = document.querySelector(".header");
   const sobreFestival = document.querySelector(".sobre-festival");
 
-  window.addEventListener('scroll', function(){
-
-    if(sobreFestival.getBoundingClientRect().bottom < 1){//esta seccion nos permite ver si pasamos de un elemento o seccion 
-      header.classList.add('fixed')
-    }else{
-      header.classList.remove('fixed')
+  window.addEventListener("scroll", function () {
+    if (sobreFestival.getBoundingClientRect().bottom < 1) {
+      //esta seccion nos permite ver si pasamos de un elemento o seccion
+      header.classList.add("fixed");
+    } else {
+      header.classList.remove("fixed");
     }
- 
-})
+  });
 }
 
 function crearGaleria() {
@@ -26,6 +25,9 @@ function crearGaleria() {
 
   for (let i = 1; i <= CANTIDAD_IMAGENES; i++) {
     const imagen = document.createElement("IMG");
+    imagen.loading = "Lazy";
+    imagen.width = "300";
+    imagen.height = "200";
     imagen.src = `src/img/gallery/full/${i}.jpg`;
     imagen.alt = "Imagen Galeria";
 
@@ -48,12 +50,11 @@ function mostrarImagen(i) {
   modal.classList.add("modal");
   modal.onclick = cerrarModal;
 
-  // Botón cerrar modal 
-  const cerrarModalBtn = document.createElement('BUTTON')
-  cerrarModalBtn.textContent = "X"
-  cerrarModalBtn.classList.add('btn-cerrar')
-  cerrarModalBtn.onclick = cerrarModal
-
+  // Botón cerrar modal
+  const cerrarModalBtn = document.createElement("BUTTON");
+  cerrarModalBtn.textContent = "X";
+  cerrarModalBtn.classList.add("btn-cerrar");
+  cerrarModalBtn.onclick = cerrarModal;
 
   modal.appendChild(imagen);
   modal.appendChild(cerrarModalBtn);
@@ -82,43 +83,40 @@ function cerrarModal() {
   }, 500);
 }
 
-function resaltarEnlace(){
-  document.addEventListener('scroll', function(){
-    const sections = document.querySelectorAll('section')
-    const navLinks = document.querySelectorAll('.navegacion-principal a')
+function resaltarEnlace() {
+  document.addEventListener("scroll", function () {
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll(".navegacion-principal a");
 
-    let actual = '';
-    sections.forEach( section => {
-      const sectionTop = section.offsetTop
-      const seccionHeight = section.clientHeight
+    let actual = "";
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop;
+      const seccionHeight = section.clientHeight;
 
-      if (window.scrollY >= (sectionTop - seccionHeight / 3)){
-          actual = section.id
+      if (window.scrollY >= sectionTop - seccionHeight / 3) {
+        actual = section.id;
       }
-    })
+    });
 
-    navLinks.forEach(link =>{
-      link.classList.remove('active')
-      if(link.getAttribute('href') === '#' + actual){
-          link.classList.add('active')
+    navLinks.forEach((link) => {
+      link.classList.remove("active");
+      if (link.getAttribute("href") === "#" + actual) {
+        link.classList.add("active");
       }
-    })
- 
-  })
+    });
+  });
 }
 
-function scrollNav(){
-  const navLinks = document.querySelectorAll('.navegacion-principal a')
+function scrollNav() {
+  const navLinks = document.querySelectorAll(".navegacion-principal a");
 
-  navLinks.forEach(link =>{
-    link.addEventListener('click', e =>{
-      e.preventDefault()
-      const sectionScroll = e.target.getAttribute('href')
-      const section = document.querySelector(sectionScroll)
+  navLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      const sectionScroll = e.target.getAttribute("href");
+      const section = document.querySelector(sectionScroll);
 
-      section.scrollIntoView({behavior: 'smooth'})//Crea el efecto de scroll suavizado 
-
-    })
-  })
-
+      section.scrollIntoView({ behavior: "smooth" }); //Crea el efecto de scroll suavizado
+    });
+  });
 }
