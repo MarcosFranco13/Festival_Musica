@@ -1,5 +1,6 @@
 import path from 'path'
 import fs from 'fs' 
+import {glob} from 'glob'
 
 import {src, dest, watch,series} from 'gulp'
 // series permite ejecutar una tarea y despues otra, por lo que se puede ejecutar multiples tareas
@@ -56,11 +57,40 @@ export async function crop(done) {
     }
 }
 
+
+export async function imagenes(done) {
+    const srcDir = './src/img';
+    const buildDir = './build/img';
+    const images =  await glob('./src/img/**/*{jpg,png}')
+
+    images.forEach(file => {
+        const relativePath = path.relative(srcDir, path.dirname(file));
+        const outputSubDir = path.join(buildDir, relativePath);
+        procesarImagenes(file, outputSubDir);
+    });
+    done();
+}
+
+function procesarImagenes(file, outputSubDir) {
+    if (!fs.existsSync(outputSubDir)) {
+        fs.mkdirSync(outputSubDir, { recursive: true })
+    }
+    const baseName = path.basename(file, path.extname(file))
+    const extName = path.extname(file)
+    const outputFile = path.join(outputSubDir, `${baseName}${extName}`)
+    const outputFileWebp = path.join(outputSubDir, `${baseName}.webp`)
+
+    const options = { quality: 80 }
+    sharp(file).jpeg(options).toFile(outputFile)
+    sharp(file).webp(options).toFile(outputFileWebp)
+}
+
 export function dev(){
     watch('src/scss/**/*.scss', css)//indicamos el archivo que este en observación y que funcion se ejecute cuando existan cambios
     //Cambiamos el nombre de app.scss por uno mas generico que nos permita encontrar mas archivos que tengan .scss
     //Entonces en src y scss **buscara todos las carpetas que esten dentro entonces * todos los archivos que tenga la extension .scss
     watch('src/js/**/*.js', js)
+    watch('src/img/**/*.{png,jpg}', imagenes)
 }
 
-export default series(crop,js,css, dev)
+export default series(crop,js,css,imagenes, dev)
