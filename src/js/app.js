@@ -28,7 +28,7 @@ function crearGaleria() {
     imagen.loading = "Lazy";
     imagen.width = "300";
     imagen.height = "200";
-    imagen.src = `src/img/gallery/full/${i}.jpg`;
+    imagen.src = `src/img/gallery/thumb/${i}.jpg`;
     imagen.alt = "Imagen Galeria";
 
     //Event Handler - Es el proceso de detectar y responder a una interacción del usuario
